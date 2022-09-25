@@ -1,0 +1,102 @@
+body {
+	background-color: #a7d8d3;
+}
+
+ul {
+	list-style: none;
+	text-decoration: none;
+}
+
+.App{
+	text-align: center;
+	padding: 0;
+	left: 0;
+	margin: 0;
+	top: 0;
+}
+
+.form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);	
+}
+
+.form-info{
+	flex-direction: row;
+}
+
+.input{
+	border-radius: 10px;
+	border: 1px solid black;
+	padding: 5px 20px;
+	background-color: rgb(208, 249, 236);
+}
+
+.btnsend{
+	background-color: rgb(19, 72, 68);
+	border: 1px solid black;
+	color: white;
+	padding: 5px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 15px;
+}
+
+.btnsend:hover{
+	background-color: rgb(133, 245, 245);
+	color: black;
+}
+
+/* estilos de la card */
+
+.card-container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	cursor: pointer;	
+}
+
+.card{
+	background-color: rgb(119, 170, 173);
+	width: 300px;
+	height: 400px;
+	border-radius: 15px;
+	border: 3px double rgb(9, 186, 213);
+	margin: 10px
+}
+
+.card img{
+	height: 100px;
+	object-fit: cover;
+	z-index: 1;
+}
+
+.header{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+}
+
+.header-info{
+	text-align: left;
+	padding-left:60px;
+}
+.header-info p{
+	font-size: 20px;
+}
+
+.header-home{
+	padding: 20px;
+}
+
+
