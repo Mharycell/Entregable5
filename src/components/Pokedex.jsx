@@ -39,17 +39,19 @@ const Pokedex = () => {
                 </div>
 
                 <div className='header-home'>
-                <Link className='btnsend' to="/">Home</Link>
+                <Link className='btnsend' to="/"><i className="fa-solid fa-house-chimney"></i></Link>
                 </div>
 
             </div>
 
             <div>
                 <input className='input' type="text"
-                placeholder='Search for name'
-                value={namePokemon}
-                onChange= {e => setNamePokemon(e.target.value)} />
-                <button onClick={searchNamePokemon} className='btnsend'>Search</button>
+                    placeholder='Search for name'
+                    value={namePokemon}
+                    onChange= {e => setNamePokemon(e.target.value)} />
+                <button onClick={searchNamePokemon} className='btnsend'>
+                    <i className="fa-solid fa-magnifying-glass"></i>
+                </button>
                 <select className="input" id="" onChange={e => searchTypePokemon(e.target.value)}>
                     <option value="">Search for type</option>
                     {typePokemon.map(type => (

@@ -62,23 +62,44 @@ ul {
 .card-container{
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
-	cursor: pointer;	
+	justify-content: space-evenly;
+	padding: 10px 60 px;
+	gap: 3px;
 }
 
 .card{
-	background-color: rgb(119, 170, 173);
-	width: 300px;
-	height: 400px;
+	display: flex;
+	width: 250px;
+	height: 290px;
 	border-radius: 15px;
-	border: 3px double rgb(9, 186, 213);
-	margin: 10px
+	margin: 10px;
+	cursor: pointer;
+}
+
+.card:hover{
+	transform: scale(1.05);
+	-webkit-box-shadow: -24px 23px 21px -16px rgba(0,0,0,0.22);
+	-moz-box-shadow: -24px 23px 21px -16px rgba(0,0,0,0.22);
+	box-shadow: -24px 23px 21px -16px rgba(0,0,0,0.22);
 }
 
 .card img{
 	height: 100px;
 	object-fit: cover;
 	z-index: 1;
+}
+
+.pokeimage{
+	margin-top: calc(100% - 50px);
+	margin-left: calc(280px - 100%);
+}
+
+.pokeinfo{
+	padding-left: 10px;
+}
+
+h1, h2, h3, h4, p{
+	text-transform: capitalize;
 }
 
 .header{
@@ -99,4 +120,146 @@ ul {
 	padding: 20px;
 }
 
+.trainer{
+	height: 15rem;
+}
 
+/* .userInput-img2 {
+	width: 100%;
+	opacity: 0.3;
+	animation-name: pokeball;
+	animation-iteration-count: infinite;
+	animation-duration: 3s;
+	animation-timing-function: linear;
+  }
+  @keyframes pokeball {
+	form {
+	  transform: rotate(0deg);
+	}
+	to {
+	  transform: rotate(360deg);
+	}
+  } */
+
+  /* Colores de las Card */
+.rock {
+	background: rgb(70, 24, 11);
+	border: 3px double rgb(114, 41, 21);
+	color: aliceblue;
+}
+.ghost {
+	background: rgb(49, 51, 106);
+	border: 3px double rgb(41, 47, 196);
+	color: aliceblue;
+}
+.electric {
+	background: rgb(226, 224, 45);
+	border: 3px double rgb(223, 219, 3);
+}
+.bug {
+	background: rgb(139, 195, 74);
+	border: 3px double rgb(94, 158, 21);
+}
+.poison {
+	background: rgb(91, 45, 134);
+	border: 3px double rgb(76, 10, 138);
+}
+.normal {
+	background: rgb(115, 81, 89);
+	border: 3px double rgb(150, 37, 63);
+	color: aliceblue;
+}
+.fairy {
+	background: rgb(152, 24, 68);
+	border: 3px double rgb(207, 11, 80);
+	color: aliceblue;
+}
+.fire {
+	background: rgb(251, 108, 108);
+	border: 3px double rgb(245, 55, 55);
+}
+.grass {
+	background: rgb(72, 208, 176);
+	border: 3px double rgb(10, 92, 73);
+}
+.water {
+	background: rgb(112, 183, 250);
+	border: 3px double rgb(9, 186, 213);
+}
+.fighting {
+	background: rgb(151, 63, 38);
+	border: 3px double rgb(150, 48, 20);
+}
+.psychic {
+	background: rgb(255, 235, 59);
+	border: 3px double rgb(209, 188, 1);
+}
+.ground {
+	background: rgb(255, 235, 59);
+	border: 3px double rgb(209, 188, 1);
+}
+.ice {
+	background: rgb(134, 210, 244);
+	border: 3px double rgb(75, 124, 146);
+}
+.dark {
+	background: rgb(3, 7, 6);
+	border: 3px double rgb(253, 253, 253);
+	color: aliceblue;
+}
+.dragon {
+	background: rgb(68, 138, 148);
+	border: 3px double rgb(64, 177, 194);
+}
+.steel {
+	background: rgb(93, 115, 108);
+	border: 3px double rgb(61, 60, 60);
+}
+.flying {
+	background: rgb(72, 110, 134);
+	border: 3px double rgb(88, 115, 150);
+}
+
+.radiant {
+	background: radial-gradient(circle, #11cd11, #00c987, #00bece, #00adef, #1896e5);
+}
+
+.cont-pokeinfo{
+	padding: 30px;
+	text-transform: capitalize;
+}
+
+.cont-pokeinfo div{
+	border-radius: 15px;
+}
+
+.detail{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: black;
+}
+
+.cont-pokeinfo_header{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	height: auto;
+}
+
+.left{
+	display: flex;
+	flex-direction: column;
+	width: 68%;
+	height: auto;
+}
+
+.frame{
+	background-color: aliceblue;
+	width: 100%;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 10px;
+}
+  

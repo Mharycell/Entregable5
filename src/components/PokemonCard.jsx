@@ -6,15 +6,22 @@ const PokemonCard = ({url}) => {
 
     const [pokemons, setPokemons] = useState({})
     const navigate= useNavigate()
+    const [colors, setColors] = useState({})
+    const color = colors.types?.[0].type.name 
+    const style = `card ${color}`
 
     useEffect(() => {
         axios.get(url)
             .then((res) => setPokemons(res.data))
+            axios.get(url)
+            .then(res => setColors(res.data))
     }, [])
     
-   console.log(pokemons)
+ 
     return (
-        <div onClick={() => navigate(`/pokedex/${pokemons.id}`)} className='card'>
+        <div onClick={() => navigate(`/pokedex/${pokemons.id}`)} className={style}>
+
+            <div className='pokeinfo'>
             <h1>{pokemons.name}</h1>
             <p><strong>Types:</strong> {" " + pokemons.types?.[0]?.type.name + ", "} {pokemons.types?.[1]?.type.name ?  pokemons.types?.[1]?.type.name :""}
             </p>
@@ -22,7 +29,12 @@ const PokemonCard = ({url}) => {
             <p> <strong>ATTACK: </strong> {pokemons.stats?.[1].base_stat}</p>
             <p> <strong>DEFENSE: </strong>  {pokemons.stats?.[2].base_stat}</p>
             <p> <strong>SPEED: </strong>  {pokemons.stats?.[5].base_stat}</p>
-            <img src={pokemons.sprites?.other.dream_world.front_default} alt="" />
+            </div>
+
+            <div className='pokeimage'>
+            <img src={pokemons.sprites?.other.dream_world.front_default} alt={pokemons.name}/>
+            </div>
+           
         </div>
     );
 };
