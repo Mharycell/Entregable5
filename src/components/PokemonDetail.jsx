@@ -15,14 +15,20 @@ const PokemonDetail = () => {
     
     const color = pokemon.types?.[0].type.name
     document.body.className = `${color}`
+    const reset = () => {
+        document.body.className= "white"
+    }
     
 console.log(pokemon)
     return (
         <div className='cont-pokeinfo'>
             <div className='cont-pokeinfo_header'>
-                <Link to="/pokedex">Return</Link>
+                <Link onClick={reset} to="/pokedex"><i class="fa-solid fa-rotate-left"></i></Link>
                 <div className='cont-pokeinfo_logo'>
-                <img src="" alt="" />
+                <img className= "logo"
+                            src='https://logos-marcas.com/wp-content/uploads/2020/05/Pokemon-Logo.png'
+                            alt='Logo Pokemon'                        
+                        />
                 </div>
             </div>
 
@@ -49,7 +55,7 @@ console.log(pokemon)
                     <div className='type-abilities'>
                             <div className='type'>
                                 <h2>Type</h2>
-                                <div>
+                                <div className='flex'>
                                     {pokemon.types?.map(type => (
                                         <p className={type.type.name}
                                          key={type.type.name}>
@@ -60,7 +66,7 @@ console.log(pokemon)
                             </div>
                             <div className='abilities'>
                                 <h2>Abilities</h2>
-                                <div>
+                                <div className='flex'>
                                     {pokemon.abilities?.map(ability => (
                                         <p key={ability.ability?.name} >
                                             {ability.ability?.name}
@@ -75,24 +81,26 @@ console.log(pokemon)
                             <p> <strong>ATTACK: </strong> {pokemon.stats?.[1].base_stat}</p>
                             <p> <strong>DEFENSE: </strong>  {pokemon.stats?.[2].base_stat}</p>
                             <p> <strong>SPEED: </strong>  {pokemon.stats?.[5].base_stat}</p>
-                    </div>                    
+                    </div> 
+                    <div className='movements'>
+                        <h2>Movements</h2>
+                        
+                            <div>
+                                {pokemon.moves?.map((item, index)=> {
+                                    return (
+                                        <p key={index}>
+                                            {item.move.name} 
+                                        </p>
+                                    )
+                                })}
+                            </div>
+                           
+                    </div>                  
                 </div>
                 <div className='rigth'>
                     <div className='counters'>
                         <button className='btnsend'>counters</button>
-                    </div>
-                    <div className='movements'>
-                        <h2>Movements</h2>
-                        <ul>
-                            {pokemon.moves?.map((item, index)=> {
-                                return (
-                                    <li key={index}>
-                                        {item.move.name} <hr />
-                                    </li>
-                                )
-                            })}
-                        </ul>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>

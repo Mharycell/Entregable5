@@ -5,6 +5,7 @@ import PokemonDetail from './components/PokemonDetail'
 import PokeUser from './components/PokeUser'
 import PokemonCard from "./components/PokemonCard"
 import ProtectedRoutes from "./components/ProtectedRoutes"
+import Configurate from './components/Configurate'
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<PokeUser/>}/>
           <Route path="/pokedex" element={<Pokedex/>}/>
           <Route path="/pokedex/:id" element={<PokemonDetail/>}/>
+          <Route path="/configurate" element={<Configurate/>}/>
         </Routes>
       </HashRouter>
     </div>
