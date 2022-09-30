@@ -1,8 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './css/configurate.css'
+import React from 'react';
+import { Link } from "react-router-dom"
+import "./css/configurate.css"
 
-const Configurate = () => {
+const Configurate = () => { 
+    
 	const darkMood = () => {
 		const darkMode = localStorage.getItem('darkMood')
 		const Switch = document.getElementById('switch')
@@ -28,8 +29,19 @@ const Configurate = () => {
 			</div>
 			<h1>Settings</h1>
 
-			<div className='mood'>
-				<h2>Theme</h2>
+<<<<<<< HEAD
+	return (
+		<div className='total-cont'>
+			<div className='regre'>
+				<Link to='/pokedex' className='return'>
+					<i className='fa-solid fa-rotate-left'></i>
+				</Link>
+			</div>
+			<h1>Settings</h1>
+=======
+				<div className='mood'>
+					<h2>Theme</h2>
+>>>>>>> 91a100117af60d81360e6b81747ed06c9052939f
 
 				<div className='ld'>
 					<p>Ligth</p>
@@ -68,3 +80,5 @@ const Configurate = () => {
 }
 
 export default Configurate
+
+export default Configurate;
