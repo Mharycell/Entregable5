@@ -12,6 +12,7 @@ const Pokedex = () => {
   const [typePokemon, setTypePokemon] = useState([]);
   const name = useSelector((state) => state.userName);
 
+  
   useEffect(() => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/?limit=1000`)

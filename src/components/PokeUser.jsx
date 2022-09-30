@@ -14,6 +14,7 @@ const PokeUser = () => {
         navigate("/pokedex")
     }
 
+      
     return (
         <div className='form'>   
             <img className='trainer' src={ash} alt="" />     

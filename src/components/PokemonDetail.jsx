@@ -93,15 +93,9 @@ console.log(pokemon)
                                         </p>
                                     )
                                 })}
-                            </div>
-                           
+                            </div>                           
                     </div>                  
-                </div>
-                <div className='rigth'>
-                    <div className='counters'>
-                        <button className='btnsend'>counters</button>
-                    </div>                    
-                </div>
+                </div>                
             </div>
         </div>
     );
