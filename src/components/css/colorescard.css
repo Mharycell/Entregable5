@@ -1,0 +1,78 @@
+/* Colores de las Card */
+.rock {
+	background: rgb(70, 24, 11);
+	border: 3px double rgb(114, 41, 21);
+	color: aliceblue;
+}
+.ghost {
+	background: rgb(49, 51, 106);
+	border: 3px double rgb(41, 47, 196);
+	color: aliceblue;
+}
+.electric {
+	background: rgb(226, 224, 45);
+	border: 3px double rgb(223, 219, 3);
+}
+.bug {
+	background: rgb(139, 195, 74);
+	border: 3px double rgb(94, 158, 21);
+}
+.poison {
+	background: rgb(91, 45, 134);
+	border: 3px double rgb(76, 10, 138);
+}
+.normal {
+	background: rgb(115, 81, 89);
+	border: 3px double rgb(150, 37, 63);
+	color: aliceblue;
+}
+.fairy {
+	background: rgb(152, 24, 68);
+	border: 3px double rgb(207, 11, 80);
+	color: aliceblue;
+}
+.fire {
+	background: rgb(251, 108, 108);
+	border: 3px double rgb(245, 55, 55);
+}
+.grass {
+	background: rgb(72, 208, 176);
+	border: 3px double rgb(10, 92, 73);
+}
+.water {
+	background: rgb(112, 183, 250);
+	border: 3px double rgb(9, 186, 213);
+}
+.fighting {
+	background: rgb(151, 63, 38);
+	border: 3px double rgb(150, 48, 20);
+}
+.psychic {
+	background: rgb(255, 235, 59);
+	border: 3px double rgb(209, 188, 1);
+}
+.ground {
+	background: rgb(255, 235, 59);
+	border: 3px double rgb(209, 188, 1);
+}
+.ice {
+	background: rgb(134, 210, 244);
+	border: 3px double rgb(75, 124, 146);
+}
+.dark {
+	background: rgb(3, 7, 6);
+	border: 3px double rgb(253, 253, 253);
+	color: aliceblue;
+}
+.dragon {
+	background: rgb(68, 138, 148);
+	border: 3px double rgb(64, 177, 194);
+}
+.steel {
+	background: rgb(93, 115, 108);
+	border: 3px double rgb(61, 60, 60);
+}
+.flying {
+	background: rgb(72, 110, 134);
+	border: 3px double rgb(88, 115, 150);
+}

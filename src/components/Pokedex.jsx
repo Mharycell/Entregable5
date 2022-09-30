@@ -1,105 +1,111 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import PokemonCard from "./PokemonCard";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import Configurate from "./Configurate";
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import PokemonCard from './PokemonCard'
+import { Link, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import Configurate from './Configurate'
+import './css/pokedex.css'
+import './css/colorescard.css'
 
 const Pokedex = () => {
-  const [pokemons, setPokemons] = useState([]);
-  const [namePokemon, setNamePokemon] = useState("");
-  const navigate = useNavigate();
-  const [typePokemon, setTypePokemon] = useState([]);
-  const name = useSelector((state) => state.userName);
+	const [pokemons, setPokemons] = useState([])
+	const [namePokemon, setNamePokemon] = useState('')
+	const navigate = useNavigate()
+	const [typePokemon, setTypePokemon] = useState([])
+	const name = useSelector((state) => state.userName)
+	if (localStorage.getItem('darkMood')) {
+	} else {
+		localStorage.setItem('darkMood', 1)
+	}
 
-  useEffect(() => {
-    axios
-      .get(`https://pokeapi.co/api/v2/pokemon/?limit=1000`)
-      .then((res) => setPokemons(res.data.results));
-    axios
-      .get("https://pokeapi.co/api/v2/type/")
-      .then((res) => setTypePokemon(res.data.results));
-  }, []);
+	const darkMode = localStorage.getItem('darkMood')
+	if (darkMode == '1') {
+		// No
+		document.body.classList = ''
+	} else if (darkMode == '2') {
+		// Si
+		document.body.classList = 'darkMood'
+	}
 
-  const searchNamePokemon = () => {
-    navigate(`/pokedex/${namePokemon}`);
-  };
+	useEffect(() => {
+		axios
+			.get(`https://pokeapi.co/api/v2/pokemon/?limit=1000`)
+			.then((res) => setPokemons(res.data.results))
+		axios.get('https://pokeapi.co/api/v2/type/').then((res) => setTypePokemon(res.data.results))
+	}, [])
 
-  const searchTypePokemon = (urlPokemon) => {
-    if (urlPokemon) {
-      axios
-        .get(urlPokemon)
-        .then((res) =>
-          setPokemons(res.data.pokemon.map((pokemon) => pokemon.pokemon))
-        );
-    }
-  };
+	const searchNamePokemon = () => {
+		navigate(`/pokedex/${namePokemon}`)
+	}
 
+	const searchTypePokemon = (urlPokemon) => {
+		if (urlPokemon) {
+			axios
+				.get(urlPokemon)
+				.then((res) => setPokemons(res.data.pokemon.map((pokemon) => pokemon.pokemon)))
+		}
+	}
 
-//   Paginación
-  const [page, setPage] = useState(1);
-  const pokemonsPerPage = 20;
-  const lastpokemonIndex = page * pokemonsPerPage; //15;
-  const firstpokemonIndex = lastpokemonIndex - pokemonsPerPage; // 10
-  const pokemonsPaginated = pokemons.slice(
-    firstpokemonIndex,
-    lastpokemonIndex
-  );
-  const totalPages = Math.ceil(pokemons.length / pokemonsPerPage);
-  const pagesNumbers = [];
-  for (let i = 1; i <= totalPages; i++) {
-    pagesNumbers.push(i);
-  }
+	//   Paginación
+	const [page, setPage] = useState(1)
+	const pokemonsPerPage = 20
+	const lastpokemonIndex = page * pokemonsPerPage //15;
+	const firstpokemonIndex = lastpokemonIndex - pokemonsPerPage // 10
+	const pokemonsPaginated = pokemons.slice(firstpokemonIndex, lastpokemonIndex)
+	const totalPages = Math.ceil(pokemons.length / pokemonsPerPage)
+	const pagesNumbers = []
+	for (let i = 1; i <= totalPages; i++) {
+		pagesNumbers.push(i)
+	}
 
-  return (
-    <div>
-      <div className="header">
-        <div className="header-info">
-          <h1>Pokedex</h1>
-          <p>
-            Welcome <strong>{name}</strong>, here you can find your favorite
-            pokemon
-          </p>
-        </div>
+	return (
+		<div>
+			<div className='header'>
+				<div className='header-info'>
+					<h1>Pokedex</h1>
+					<p>
+						Welcome <strong>{name}</strong>, here you can find your favorite pokemon
+					</p>
+				</div>
 
-        <div className="header-home">
-          <Link className="btnsend" to="/">
-            <i className="fa-solid fa-house-chimney"></i>
-          </Link>
-        </div>
-      </div>
+				<div className='header-home'>
+					<Link className='btnsend' to='/'>
+						<i className='fa-solid fa-house-chimney'></i>
+					</Link>
+				</div>
+			</div>
 
-      <div>
-        <input
-          className="input"
-          type="text"
-          placeholder="Search for name"
-          value={namePokemon}
-          onChange={(e) => setNamePokemon(e.target.value)}
-        />
-        <button onClick={searchNamePokemon} className="btnsend">
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </button>
-        <select
-          className="select"
-          id=""
-          onChange={(e) => searchTypePokemon(e.target.value)}
-        >
-          <option value="">Search for type</option>
-          {typePokemon.map((type) => (
-            <option value={type.url} key={type.url}>
-              {type.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      <hr />
-      <div className="card-container">
-        {pokemonsPaginated.map((pokemon) => {
-          return <PokemonCard key={pokemon.name} url={pokemon.url} />;
-        })}
-      </div>
-      <div className='pagination'>
+			<div className='application-form'>
+				<div>
+					<input
+						className='input'
+						type='text'
+						placeholder='Search for name'
+						value={namePokemon}
+						onChange={(e) => setNamePokemon(e.target.value)}
+					/>
+					<button onClick={searchNamePokemon} className='btnsend'>
+						<i className='fa-solid fa-magnifying-glass'></i>
+					</button>
+				</div>
+				<div>
+					<select className='select' id='' onChange={(e) => searchTypePokemon(e.target.value)}>
+						<option value=''>Search for type</option>
+						{typePokemon.map((type) => (
+							<option value={type.url} key={type.url}>
+								{type.name}
+							</option>
+						))}
+					</select>
+				</div>
+			</div>
+			<hr />
+			<div className='card-container'>
+				{pokemonsPaginated.map((pokemon) => {
+					return <PokemonCard key={pokemon.name} url={pokemon.url} />
+				})}
+			</div>
+			<div className='pagination'>
 				<button onClick={() => setPage(page - 1)} disabled={page === 1 || totalPages === 0}>
 					<svg viewBox='0 0 20 27' fill='#FF6F91' xmlns='http://www.w3.org/2000/svg'>
 						<path
@@ -126,9 +132,8 @@ const Pokedex = () => {
 					</p>
 				</div>
 			</div>
-            <Link to="/configurate">Dark</Link>
-    </div>
-  );
-};
+		</div>
+	)
+}
 
-export default Pokedex;
+export default Pokedex
