@@ -2,5 +2,5 @@
 Website Pokedex: https://pokedex-ml-js.netlify.app/
 
 ## Integrantes: 
-- Julio Sevillano}
+- Julio Sevillano
 - Maricel López
