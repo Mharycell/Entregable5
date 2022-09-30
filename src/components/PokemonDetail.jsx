@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
+import { produceWithPatches } from 'immer'
 
 const PokemonDetail = () => {
 	const { id } = useParams()
@@ -12,13 +13,13 @@ const PokemonDetail = () => {
 
 	const color = pokemon.types?.[0].type.name
 	document.body.className = `${color}`
-	const reset = () => {
-		document.body.className = 'white'
-	}
+
+	// * Stats bases
+
 	return (
 		<div className='cont-pokeinfo'>
 			<div className='cont-pokeinfo_header'>
-				<Link onClick={reset} to='/pokedex' className='returndetail'>
+				<Link to='/pokedex' className='returndetail'>
 					<i className='fa-solid fa-rotate-left'></i>
 				</Link>
 				<div className='cont-pokeinfo_logo'>
@@ -32,7 +33,7 @@ const PokemonDetail = () => {
 
 			<div className='detail'>
 				<div className='left'>
-					<div className='frame'>
+					<div className='frame div'>
 						<div>
 							<img src={pokemon.sprites?.other.dream_world.front_default} alt='' />
 						</div>
@@ -56,7 +57,7 @@ const PokemonDetail = () => {
 						</div>
 					</div>
 					<div className='type-abilities'>
-						<div className='type'>
+						<div className='type div'>
 							<h2>Type</h2>
 							<div className='flex'>
 								{pokemon.types?.map((type) => (
@@ -66,7 +67,7 @@ const PokemonDetail = () => {
 								))}
 							</div>
 						</div>
-						<div className='abilities'>
+						<div className='abilities div'>
 							<h2>Abilities</h2>
 							<div className='flex'>
 								{pokemon.abilities?.map((ability) => (
@@ -77,26 +78,113 @@ const PokemonDetail = () => {
 					</div>
 					<div className='stats'>
 						<h2>Stats bases</h2>
-						<p>
-							{' '}
-							<strong>HP: </strong> {pokemon.stats?.[0].base_stat}
-						</p>
-						<p>
-							{' '}
-							<strong>ATTACK: </strong> {pokemon.stats?.[1].base_stat}
-						</p>
-						<p>
-							{' '}
-							<strong>DEFENSE: </strong> {pokemon.stats?.[2].base_stat}
-						</p>
-						<p>
-							{' '}
-							<strong>SPEED: </strong> {pokemon.stats?.[5].base_stat}
-						</p>
+						<div className='stats-container'>
+							<div className='up'>
+								<div className='stats-bg'>
+									<div className='outer'>
+										<div className='inner'>
+											<div id='number'>{pokemon.stats?.[0].base_stat}</div>
+										</div>
+									</div>
+									<svg xmlns='http://www.3.org/2000/svg' version='1.1' width='160px' height='160px'>
+										<defs>
+											<linearGradient id='GradienColor'>
+												<stop offset='0%' stopColor='#DA22FF' />
+												<stop offset='100%' stopColor='#9733EE' />
+											</linearGradient>
+										</defs>
+										<circle cx='80' cy='80' r='70' strokeLinecap='round' />
+									</svg>
+								</div>
+								<br />
+								<br />
+								<div className='stats-bg'>
+									<div className='outer'>
+										<div className='inner'>
+											<div id='number'>{pokemon.stats?.[1].base_stat}</div>
+										</div>
+									</div>
+									<svg xmlns='http://www.3.org/2000/svg' version='1.1' width='160px' height='160px'>
+										<defs>
+											<linearGradient id='GradienColor'>
+												<stop offset='0%' stopColor='#555' />
+												<stop offset='100%' stopColor='#fff' />
+											</linearGradient>
+										</defs>
+										<circle cx='80' cy='80' r='70' strokeLinecap='round' />
+									</svg>
+								</div>
+							</div>
+							<div className='down'>
+								<div className='stats-bg'>
+									<div className='outer'>
+										<div className='inner'>
+											<div id='number'>{pokemon.stats?.[2].base_stat}</div>
+										</div>
+									</div>
+									<svg xmlns='http://www.3.org/2000/svg' version='1.1' width='160px' height='160px'>
+										<defs>
+											<linearGradient id='GradienColor'>
+												<stop offset='0%' stopColor='#555' />
+												<stop offset='100%' stopColor='#fff' />
+											</linearGradient>
+										</defs>
+										<circle cx='80' cy='80' r='70' strokeLinecap='round' />
+									</svg>
+								</div>
+								<br />
+								<br />
+								<div className='stats-bg'>
+									<div className='outer'>
+										<div className='inner'>
+											<div id='number'>{pokemon.stats?.[5].base_stat}</div>
+										</div>
+									</div>
+									<svg xmlns='http://www.3.org/2000/svg' version='1.1' width='160px' height='160px'>
+										<defs>
+											<linearGradient id='GradienColor'>
+												<stop offset='0%' stopColor='#555' />
+												<stop offset='100%' stopColor='#fff' />
+											</linearGradient>
+										</defs>
+										<circle cx='80' cy='80' r='70' strokeLinecap='round' />
+									</svg>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div className='movements'>
+				</div>
+				<div className='rigth'>
+					<div className='counters'>
+						<button className='btnsend' style={{ width: '95%' }}>
+							counters
+						</button>
+					</div>
+					<div className='rigth-img-bg'>
+						<div className='gif'>
+							<img
+								src={
+									pokemon.sprites?.versions['generation-v']['black-white'].animated.front_default
+								}
+								alt=''
+							/>
+						</div>
+						<div>
+							<img src={pokemon.sprites?.other.home.front_default} alt='' />
+						</div>
+						<div>
+							<img
+								src={pokemon.sprites?.versions['generation-iii']['firered-leafgreen'].front_default}
+								alt=''
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className='scroll-bg'>
+				<div className='scroll-div'>
+					<div className='scroll-object'>
 						<h2>Movements</h2>
-
 						<div>
 							{pokemon.moves?.map((item, index) => {
 								return <p key={index}>{item.move.name}</p>
@@ -104,11 +192,9 @@ const PokemonDetail = () => {
 						</div>
 					</div>
 				</div>
-				{/* <div className='rigth'>
-					<div className='counters'>
-						<button className='btnsend'>counters</button>
-					</div>
-				</div> */}
+
+				<br />
+				<br />
 			</div>
 		</div>
 	)

@@ -15,6 +15,15 @@ const PokemonCard = ({ url }) => {
 		axios.get(url).then((res) => setColors(res.data))
 	}, [])
 
+	const darkMode = localStorage.getItem('darkMood')
+	if (darkMode == '1') {
+		// No
+		document.body.classList = ''
+	} else if (darkMode == '2') {
+		// Si
+		document.body.classList = 'darkMood'
+	}
+
 	return (
 		<div onClick={() => navigate(`/pokedex/${pokemons.id}`)} className={style}>
 			<div className='pokeinfo'>

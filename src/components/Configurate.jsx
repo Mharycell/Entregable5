@@ -11,7 +11,7 @@ const Configurate = () => {
 			localStorage.setItem('darkMood', 2)
 			document.body.classList.add('darkMood')
 			Switch.classList.add('active')
-		} else {
+		} else if (darkMode == '2') {
 			// Si
 			localStorage.setItem('darkMood', 1)
 			document.body.classList.remove('darkMood')
@@ -21,9 +21,11 @@ const Configurate = () => {
 
 	return (
 		<div className='total-cont'>
-			<Link to='/pokedex' className='return'>
-				<i className='fa-solid fa-rotate-left'></i>
-			</Link>
+			<div className='regre'>
+				<Link to='/pokedex' className='return'>
+					<i className='fa-solid fa-rotate-left'></i>
+				</Link>
+			</div>
 			<h1>Settings</h1>
 
 			<div className='mood'>
@@ -49,8 +51,8 @@ const Configurate = () => {
 				</div>
 			</div>
 			<br />
+			<hr />
 			<br />
-
 			<div className='options'>
 				<h2> Item per page </h2>
 				<select className='select' id=''>

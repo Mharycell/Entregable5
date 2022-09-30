@@ -37,9 +37,13 @@
 /* Paginacion */
 .pagination {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	gap: 15px;
+	padding: 30px;
+	background: aliceblue;
+	opacity: 80%;
 }
 
 .pagination button {
@@ -55,10 +59,15 @@
 	font-size: 24px;
 }
 
+.pagination div p {
+	font-size: 35px;
+	font-weight: 800;
+}
+
 .pagination span {
 	background-color: #1896e5;
 	border: 1px solid #000000;
-	padding: 10px;
+	padding: 20px;
 	border-radius: 50%;
 	width: 20px;
 	height: 20px;
@@ -74,6 +83,11 @@
 	width: 15px;
 }
 
+.pagination .botones {
+	display: flex;
+	gap: 10px;
+}
+
 .pagination button[disabled] {
 	background-color: #474747;
 	cursor: no-drop;
@@ -84,6 +98,6 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	padding: 10px 60 px;
+	padding-top: 50px;
 	gap: 3px;
 }

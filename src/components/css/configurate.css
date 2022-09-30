@@ -1,22 +1,22 @@
-.total-cont {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
+.total-cont h1 {
+	font-size: 45px;
+	color: var(--text-color);
+	letter-spacing: 15px;
 }
-
 .mood {
 	width: 80%;
 	height: 120px;
 	background-color: var(--bg-color);
 	margin: 0px auto;
 	border-radius: 15px;
-	box-shadow: 5px 5px 5px 5px rgb(228, 228, 228);
+	box-shadow: 2px 2px 3px 3px rgb(71, 66, 66);
 	gap: 60px;
 }
 
 .mood h2 {
 	text-align: left;
 	margin-left: 40px;
+	margin-top: 30px;
 }
 
 .ld {
@@ -34,16 +34,17 @@
 
 .options {
 	width: 80%;
-	height: 240px;
+	height: 200px;
 	background-color: var(--bg-color);
 	margin: 0px auto;
 	border-radius: 15px;
-	box-shadow: 5px 5px 5px 5px rgb(228, 228, 228);
+	box-shadow: 2px 2px 3px 3px rgb(71, 66, 66);
 }
 
 .options h2 {
 	text-align: left;
 	margin-left: 40px;
+	margin-top: 40px;
 }
 
 .select {
@@ -52,6 +53,7 @@
 	box-shadow: 5px 5px 5px 5px rgb(228, 228, 228);
 	border-radius: 20px;
 	text-align: center;
+	cursor: pointer;
 }
 
 .switch {
@@ -65,7 +67,7 @@
 }
 
 .switch span {
-	width: 30px;
+	width: 36px;
 	height: 30px;
 	line-height: 30px;
 	display: block;
@@ -75,16 +77,16 @@
 .switch::after {
 	content: '';
 	display: block;
-	width: 32px;
-	height: 33px;
+	width: 30px;
+	height: 30px;
 	position: absolute;
 	background: var(--bg-color);
 	top: 0;
 	left: 0;
 	right: unset;
-	border-radius: 1000px;
+	border-radius: 100px;
 	transition: 0.3s ease all;
-	box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
 }
 .switch.active {
 	background: orange;
@@ -101,12 +103,17 @@
 	font-size: 40px;
 	color: rgb(15, 15, 45);
 	text-align: left;
+	cursor: pointer;
+}
+
+.regre {
+	text-align: start;
+	padding-top: 20px;
 }
 
 /* Estilos del body para el modo dark */
 body.darkMood {
 	background: var(--bg-window-dark);
-	color: var(--text-color-dark);
 }
 
 body.darkMood .mood {
@@ -119,4 +126,12 @@ body.darkMood .options {
 
 body.darkMood .return {
 	color: var(--text-color-dark);
+}
+
+body.darkMood .total-cont h1 {
+	color: aliceblue;
+}
+
+body.darkMood .frame {
+	background: black;
 }
