@@ -1,42 +1,51 @@
-import React, {useState, useEffect} from 'react';
-import {useNavigate} from "react-router-dom"
-import axios from "axios"
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import './css/pokedexcard.css'
 
-const PokemonCard = ({url}) => {
+const PokemonCard = ({ url }) => {
+	const [pokemons, setPokemons] = useState({})
+	const navigate = useNavigate()
+	const [colors, setColors] = useState({})
+	const color = colors.types?.[0].type.name
+	const style = `card ${color}`
 
-    const [pokemons, setPokemons] = useState({})
-    const navigate= useNavigate()
-    const [colors, setColors] = useState({})
-    const color = colors.types?.[0].type.name 
-    const style = `card ${color}`
+	useEffect(() => {
+		axios.get(url).then((res) => setPokemons(res.data))
+		axios.get(url).then((res) => setColors(res.data))
+	}, [])
 
-    useEffect(() => {
-        axios.get(url)
-            .then((res) => setPokemons(res.data))
-            axios.get(url)
-            .then(res => setColors(res.data))
-    }, [])
-    
- 
-    return (
-        <div onClick={() => navigate(`/pokedex/${pokemons.id}`)} className={style}>
+	return (
+		<div onClick={() => navigate(`/pokedex/${pokemons.id}`)} className={style}>
+			<div className='pokeinfo'>
+				<h1>{pokemons.name}</h1>
+				<p>
+					<strong>Types:</strong> {' ' + pokemons.types?.[0]?.type.name + ', '}{' '}
+					{pokemons.types?.[1]?.type.name ? pokemons.types?.[1]?.type.name : ''}
+				</p>
+				<p>
+					{' '}
+					<strong>HP: </strong> {pokemons.stats?.[0].base_stat}
+				</p>
+				<p>
+					{' '}
+					<strong>ATTACK: </strong> {pokemons.stats?.[1].base_stat}
+				</p>
+				<p>
+					{' '}
+					<strong>DEFENSE: </strong> {pokemons.stats?.[2].base_stat}
+				</p>
+				<p>
+					{' '}
+					<strong>SPEED: </strong> {pokemons.stats?.[5].base_stat}
+				</p>
+			</div>
 
-            <div className='pokeinfo'>
-            <h1>{pokemons.name}</h1>
-            <p><strong>Types:</strong> {" " + pokemons.types?.[0]?.type.name + ", "} {pokemons.types?.[1]?.type.name ?  pokemons.types?.[1]?.type.name :""}
-            </p>
-            <p> <strong>HP: </strong> {pokemons.stats?.[0].base_stat}</p>
-            <p> <strong>ATTACK: </strong> {pokemons.stats?.[1].base_stat}</p>
-            <p> <strong>DEFENSE: </strong>  {pokemons.stats?.[2].base_stat}</p>
-            <p> <strong>SPEED: </strong>  {pokemons.stats?.[5].base_stat}</p>
-            </div>
+			<div className='pokeimage'>
+				<img src={pokemons.sprites?.other.dream_world.front_default} alt={pokemons.name} />
+			</div>
+		</div>
+	)
+}
 
-            <div className='pokeimage'>
-            <img src={pokemons.sprites?.other.dream_world.front_default} alt={pokemons.name}/>
-            </div>
-           
-        </div>
-    );
-};
-
-export default PokemonCard;
+export default PokemonCard

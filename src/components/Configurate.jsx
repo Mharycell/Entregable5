@@ -1,12 +1,25 @@
 import React from 'react';
 import { Link } from "react-router-dom"
-import { useLocalStorage } from '../hooks/useLocalStorage';
+import "./css/configurate.css"
 
 const Configurate = () => { 
     
+	const darkMood = () => {
+		const darkMode = localStorage.getItem('darkMood')
+		const Switch = document.getElementById('switch')
+		if (darkMode == '1') {
+			// No
+			localStorage.setItem('darkMood', 2)
+			document.body.classList.add('darkMood')
+			Switch.classList.add('active')
+		} else {
+			// Si
+			localStorage.setItem('darkMood', 1)
+			document.body.classList.remove('darkMood')
+			Switch.classList.remove('active')
+		}
+	}
     
-    }
-
     return (
 			<div className='total-cont'>
 				<Link to='/pokedex'>

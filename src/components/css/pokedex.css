@@ -1,0 +1,89 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	background: aliceblue;
+	opacity: 70%;
+}
+
+.header-info {
+	text-align: left;
+	padding-left: 60px;
+}
+.header-info p {
+	font-size: 30px;
+	color: rgb(3 30 30);
+}
+
+.header-info h1 {
+	font-size: 40px;
+	letter-spacing: 5px;
+	color: rgb(29, 92, 148);
+}
+
+.header-home {
+	padding: 20px;
+}
+
+.input {
+	width: 285px;
+	height: 35px;
+	box-shadow: 5px 5px 5px 5px rgb(228, 228, 228);
+	border-radius: 20px;
+	text-align: center;
+	border: 1px solid black;
+}
+
+/* Paginacion */
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+}
+
+.pagination button {
+	background-color: #1896e5;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 50%;
+	width: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	font-size: 24px;
+}
+
+.pagination span {
+	background-color: #1896e5;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	font-weight: 800;
+	color: aliceblue;
+}
+
+.pagination svg {
+	width: 15px;
+}
+
+.pagination button[disabled] {
+	background-color: #474747;
+	cursor: no-drop;
+}
+
+/* estilos de la card */
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	padding: 10px 60 px;
+	gap: 3px;
+}

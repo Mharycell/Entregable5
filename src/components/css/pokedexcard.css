@@ -1,0 +1,227 @@
+.card {
+	display: flex;
+	width: 250px;
+	height: 290px;
+	border-radius: 15px;
+	margin: 10px;
+	cursor: pointer;
+}
+
+.card:hover {
+	transform: scale(1.05);
+	-webkit-box-shadow: -24px 23px 21px -16px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: -24px 23px 21px -16px rgba(0, 0, 0, 0.22);
+	box-shadow: -24px 23px 21px -16px rgba(0, 0, 0, 0.22);
+}
+
+.card img {
+	height: 100px;
+	object-fit: cover;
+	z-index: 1;
+}
+
+.pokeimage {
+	margin-top: calc(100% - 55px);
+	margin-left: calc(250px - 100%);
+}
+
+.application-form {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+	margin: 0 auto;
+	background: aliceblue;
+	opacity: 80%;
+	padding: 10px;
+}
+
+.pokeinfo {
+	padding: 15px;
+}
+
+.cont-pokeinfo {
+	padding: 30px;
+	text-transform: capitalize;
+}
+
+.cont-pokeinfo div {
+	border-radius: 15px;
+}
+
+.cont-pokeinfo_logo {
+	justify-content: start;
+	margin: 0px auto;
+}
+
+.logo {
+	width: 400px;
+	height: auto;
+}
+
+.detail {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: var(--text-color);
+}
+
+.returndetail {
+	padding-top: 5px;
+	padding-left: 1px;
+	font-size: 40px;
+	color: rgb(15, 15, 45);
+	text-align: left;
+}
+
+.hw {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.hw b {
+	font-size: 30px;
+	color: black;
+}
+
+.hw p {
+	font-size: 20px;
+	color: var(--text-color-second);
+}
+
+.number-name {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.number-name b {
+	border: 1px solid var(--text-color-second);
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+
+.number-name hr {
+	background-color: var(--text-color-second);
+	margin-left: 0%;
+	width: 70%;
+	margin-top: 60px;
+	height: 1px;
+}
+
+.cont-pokeinfo_header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	height: auto;
+}
+
+.left {
+	display: flex;
+	flex-direction: column;
+	width: 68%;
+	height: auto;
+}
+
+.frame {
+	background-color: var(--bg-color);
+	width: 100%;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 10px;
+}
+
+.type-abilities {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-bottom: 15px;
+	gap: 20px;
+	width: 103%;
+	height: auto;
+}
+
+.type {
+	background-color: var(--bg-color);
+	padding: 8px;
+	width: 100%;
+	align-items: center;
+}
+
+.type p {
+	border: 1px solid var(--text-color-second);
+	border-radius: 5px;
+	padding: 8px 20px;
+}
+
+.abilities {
+	background-color: var(--bg-color);
+	padding: 8px;
+	width: 100%;
+	align-items: center;
+}
+
+.abilities p {
+	border: 1px solid var(--text-color-second);
+	border-radius: 5px;
+	padding: 8px 20px;
+}
+
+.flex {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	text-align: center;
+	align-items: center;
+}
+
+.stats {
+	background-color: var(--bg-color);
+	width: 100%;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 10px;
+}
+
+.movements {
+	display: flex;
+	flex-direction: column;
+	width: 93vw;
+	height: auto;
+	background-color: var(--bg-color);
+	justify-content: space-around;
+	align-items: center;
+}
+
+.movements div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 90%;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.movements p {
+	border: 1px solid var(--text-color-second);
+	padding: 8px 20px;
+	border-radius: 10px;
+	box-shadow: 8px 8px 2px rgb(108, 105, 105);
+}
+
+.movements p:hover {
+	transform: scale(1);
+	box-shadow: none;
+}
+
+/* 
+.rigth{
+	display: flex;
+	flex-direction: column;
+	width: 26%;
+	height: auto;
+	background-color: var(--bg-color);
+} */
